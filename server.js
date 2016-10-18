@@ -1,7 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import http from 'http';
-import path from 'path';
 import randomNameGenerator from './randomNameGenerator';
 
 const r = require("rethinkdbdash")({db: 'algolia'});
@@ -16,8 +15,7 @@ const r = require("rethinkdbdash")({db: 'algolia'});
 })();
 
 const app = express();
-
-app.use(express.static(path.join(__dirname, '', 'static')));
+app.use(express.static('front/build'));
 
 app.use((err, req, res, next) => {
     console.error(err.stack);

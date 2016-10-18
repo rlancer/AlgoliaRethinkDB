@@ -5,7 +5,7 @@ Using realtime change feeds to make indexing a breeze!
 -----------
 
 ### Running the code
-*Requires [Node.js](https://nodejs.org) v4.6.0 or higher*
+*Requires [Node.js](https://nodejs.org) v4.x or higher*
 
 **From the terminal** 
 ```bash  
