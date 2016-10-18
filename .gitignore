@@ -2,3 +2,5 @@ node_modules
 rethinkdb_data
 config.js
 .idea
+.DS_Store
+.env
