@@ -14,7 +14,7 @@ Using realtime change feeds to make indexing a breeze!
  $ npm i
  $ npm run dev
 ```
-If that all worked visit [http:localhost:3006](http://localhost:3006) to launch the UI
+If that all worked visit [http://localhost:3006](http://localhost:3006) to launch the UI
 
 ### Behind the code
 * [ ] todo Have links to the here
