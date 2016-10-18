@@ -5,6 +5,8 @@ Using realtime change feeds to make indexing a breeze!
 -----------
 
 ### Running the code
+*Requires [Node.js](https://nodejs.org) v4.6.0 or higher*
+
 **From the terminal** 
 ```bash  
  $ git clone git@github.com:rlancer/AlgoliaRethinkDB.git
