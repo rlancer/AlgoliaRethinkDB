@@ -17,7 +17,7 @@ class Search extends Component {
   async  componentDidMount() {
     try {
       // Generally config will not be included like this, just a hack to make setup easier
-      const config = process.env.NODE_ENV === 'development' ? require('../../config') : (await request.get('/searchClientKeys')).body;
+      const config = process.env.NODE_ENV === 'development' ? require('../config') : (await request.get('/searchClientKeys')).body;
       this.searchClient = algoliasearch(config.applicationId, config.searchOnlyApiKey);
       this.usersIndex = this.searchClient.initIndex('users');
       this.setState({ready: true});
