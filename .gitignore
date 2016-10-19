@@ -3,3 +3,4 @@ rethinkdb_data
 .idea
 .DS_Store
 .env
+env.sh
