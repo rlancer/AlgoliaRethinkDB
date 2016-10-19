@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import rethinkdbdash from 'rethinkdbdash';
 import randomNameGenerator from './randomNameGenerator';
+import rethinkdbdash from 'rethinkdbdash';
 import algoliasearch from 'algoliasearch';
 import config from './config';
 
