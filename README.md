@@ -15,6 +15,7 @@ Using realtime change feeds to make indexing a breeze!
  $ cd AlgoliaRethinkDB
  # Edit config.js with your api keys from Algolia 
  $ vim config.js 
+ $ rethinkdb
  $ npm i
  $ npm run dev
 ```
