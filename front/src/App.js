@@ -6,10 +6,13 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App" style={{display: 'flex', flexDirection: 'column', alignItems:'center',justifyContent: 'center'}}>
+      <div className="App"
+           style={{display: 'flex', flexDirection: 'column', alignItems:'center',justifyContent: 'center'}}>
         <h1>Welcome to the Algolia + RethinkDB demo</h1>
-        <Search/>
-        <AddToIndex/>
+          <AddToIndex/>
+
+          <Search/>
+
       </div>
     );
   }

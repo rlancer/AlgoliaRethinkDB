@@ -34,10 +34,11 @@ class Search extends Component {
       return <div>Search initializing...</div>;
 
     return (
-      <div>
-        <TextField onChange={this.search} floatingLabelText='Search...'/>
+      <section>
+        <h2>Search the index</h2>
+        <TextField onBlur={e=>this.setState({result:false})} onChange={this.search} floatingLabelText='Search...'/>
         {result ? result.hits.map(hit=> <div key={hit.id}>{hit.first} {hit.last}</div>) : false}
-      </div>
+      </section>
     );
   }
 }
