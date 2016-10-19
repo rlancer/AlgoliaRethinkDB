@@ -42,9 +42,6 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-// res.type('text/xml');
-
-
 app.get('/populate', async(req, res) =>
   res.send({msg: 'DB response of adding 100 random names', ...(await r.table('users').insert(randomNameGenerator(100)))}));
 

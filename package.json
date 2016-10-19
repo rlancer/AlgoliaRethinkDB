@@ -2,28 +2,23 @@
   "name": "algolia-rethink",
   "version": "1.0.0",
   "description": "Example of how to use Algolia and RethinkDB together",
+  "repository": "https://github.com/rlancer/AlgoliaRethinkDB",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index"
+    "dev": "nodemon index",
+    "start": "node index"
   },
   "keywords": [
     "algolia",
     "rethinkdb"
   ],
-  "author": "Robert Lancer",
-  "license": "ISC",
+  "author": "Robert Lancer (https://www.collaborizm.com/profile/21339)",
+  "license": "MIT",
   "dependencies": {
     "algoliasearch": "^3.18.1",
     "babel-polyfill": "^6.9.1",
     "babel-register": "^6.9.0",
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "nodemon": "^1.11.0",
-    "rethinkdbdash": "^2.3.23"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.10.1",
     "babel-core": "^6.9.1",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-react-transform": "^2.0.0",
@@ -38,7 +33,15 @@
     "babel-preset-stage-2": "^6.3.13",
     "babel-preset-stage-3": "^6.3.13",
     "babel-register": "^6.9.0",
-    "babel-runtime": "^6.9.2"
+    "babel-runtime": "^6.9.2",
+    "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "rethinkdbdash": "^2.3.23"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "nodemon": "^1.11.0"
   },
   "babel": {
     "presets": [
