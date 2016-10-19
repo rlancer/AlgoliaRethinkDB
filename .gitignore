@@ -4,3 +4,4 @@ rethinkdb_data
 .DS_Store
 .env
 env.sh
+npm-debug.log
