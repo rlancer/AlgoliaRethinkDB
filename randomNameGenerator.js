@@ -1,14 +1,15 @@
-const firstNames = ['Robert', 'Jared', 'Anton', 'Steven', 'Jon', 'Danny', 'Ava', 'Adam', 'Karl'];
-const lastNames = ['Lancer', 'Rosen', 'Volt', 'Reubenstone', 'Goldberg', 'Katz', 'Schrier', 'Wasserman', 'Schmidt'];
+// Load and instantiate Chance
+const chance = require('chance').Chance();
+
 
 export default number=> {
-    const names = [];
+  const names = [];
 
-    for (let i = 0; i < number; i++)
-        names.push({
-            first: firstNames[Math.floor(Math.random() * firstNames.length)],
-            last: lastNames[Math.floor(Math.random() * firstNames.length)]
-        });
+  for (let i = 0; i < number; i++)
+    names.push({
+      first: chance.first(),
+      last: chance.last()
+    });
 
-    return names;
+  return names;
 };
