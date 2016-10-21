@@ -1,6 +1,5 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import randomNameGenerator from './randomNameGenerator';
 import rethinkdbdash from 'rethinkdbdash';
 import algoliasearch from 'algoliasearch';
 import config from './config';
@@ -42,8 +41,21 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.get('/populate', async(req, res) =>
-  res.send({msg: 'DB response of adding 100 random names', ...(await r.table('users').insert(randomNameGenerator(100)))}));
+
+const chance = require('chance').Chance();
+app.get('/populate', async(req, res) => {
+
+  // generates 100 random names with the help of chance.js
+  const names = [];
+  for (let i = 0; i < 100; i++)
+    names.push({
+      first: chance.first(),
+      last: chance.last()
+    });
+
+  res.send({msg: 'DB response of adding 100 random names', ...(await r.table('users').insert(names))})
+
+});
 
 app.get('/searchClientKeys', (req, res) =>
   res.send({applicationId: config.applicationId, searchOnlyApiKey: config.searchOnlyApiKey}));
