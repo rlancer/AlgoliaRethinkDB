@@ -29,9 +29,9 @@ class Search extends Component {
   select = (hit)=>
     this.setState({selected: hit});
 
-
-  deleteSelected = ()=> {
-    console.log('delete');
+  deleteSelected = async()=> {
+    this.clearSelected();
+    await request.post(`/delete/${this.state.selected.id}`);
   };
 
   clearSelected = ()=>

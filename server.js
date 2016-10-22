@@ -30,6 +30,10 @@ userIndex.setSettings({attributesToIndex: ['first', 'last']}).then();
       // Add changed values to the `users` index
       const resp = await userIndex.addObject({objectID: new_val.id, ...new_val});
       console.log('Added', new_val, '\nTo the `users` index', resp);
+    } else {
+      // no new value so must be a delete
+      const resp = await userIndex.deleteObject(old_val.id);
+      console.log('Deleted', old_val, '\nFrom the `users` index', resp);
     }
   });
 })();
@@ -41,6 +45,10 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+app.post('/delete/:user', async(req, res) => {
+  console.log(await r.table('users').get(req.params.user).delete());
+  // res.send({msg: 'DB response of adding 100 random names', ...(await r.table('users').insert(names))})
+});
 
 const chance = require('chance').Chance();
 app.get('/populate', async(req, res) => {
