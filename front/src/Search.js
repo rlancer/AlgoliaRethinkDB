@@ -8,7 +8,7 @@ class Search extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {result: false, ready: false};
+    this.state = {result: false, ready: false, selected: false};
   }
 
   search = async e =>
@@ -26,13 +26,13 @@ class Search extends Component {
     }
   }
 
-  select(hit) {
-    console.log('HITTTT', hit);
+  select = (hit)=> {
+    this.setState({selected: hit});
   }
 
   render() {
 
-    const {result, ready} = this.state;
+    const {selected, result, ready} = this.state;
 
     if (!ready)
       return <div>Search initializing...</div>;
@@ -40,15 +40,20 @@ class Search extends Component {
     return (
       <section>
         <h2>Search the index</h2>
-        <TextField onBlur={e=>window.setTimeout(()=>this.setState({result:false}),100)} onChange={this.search}
+        {selected ?
+          <pre style={{border:'solid 1px #eee',borderRadius:4}}>
+          <code>
+            {JSON.stringify(selected, null, 5)}
+          </code>
+        </pre> : false}
+
+        <TextField onBlur={e=>window.setTimeout(()=>this.setState({result:false}),500)} onChange={this.search}
                    floatingLabelText='Search...'/>
-        {result ? result.hits.map(hit=><div className="result" onClick={((h)=>this.select(h))(hit)}
+        {result ? result.hits.map(hit=><div className="result" onClick={(h=>()=>this.select(h))(hit)}
                                             key={hit.id}>{hit.first} {hit.last}</div>) : false}
       </section>
     );
   }
 }
 
-export
-default
-Search;
+export default Search;
