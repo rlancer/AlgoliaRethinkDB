@@ -29,6 +29,14 @@ Instead you simply let the change feed tell you when data is changed and you han
 ```
 If that all worked visit [http://localhost:3006](http://localhost:3006) to launch the UI
 
+You should see
+ 
+<img width="903" alt="screen shot 2016-10-22 at 1 18 25 am" src="https://cloud.githubusercontent.com/assets/1339007/19617127/e1852ee0-97f5-11e6-9b53-ff47c5e27ef6.png">
+
+Click to add 100 random names to the DB, have the node console open to see the changefeed in action.
+
+Click a search result to inspect it / delete it, have the node console open to see the changefeed handle deletes.
+
 ### Important parts of the code
 ```javascript
 import rethinkdbdash from 'rethinkdbdash';
