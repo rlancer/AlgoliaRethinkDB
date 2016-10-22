@@ -1,0 +1,8 @@
+.result {
+  cursor: pointer;
+  padding: .5rem;
+}
+
+.result:hover {
+  background: #eee;
+}

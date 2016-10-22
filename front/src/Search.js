@@ -26,6 +26,10 @@ class Search extends Component {
     }
   }
 
+  select(hit) {
+    console.log('HITTTT', hit);
+  }
+
   render() {
 
     const {result, ready} = this.state;
@@ -36,8 +40,10 @@ class Search extends Component {
     return (
       <section>
         <h2>Search the index</h2>
-        <TextField onBlur={e=>this.setState({result:false})} onChange={this.search} floatingLabelText='Search...'/>
-        {result ? result.hits.map(hit=> <div key={hit.id}>{hit.first} {hit.last}</div>) : false}
+        <TextField onBlur={e=>window.setTimeout(()=>this.setState({result:false}),100)} onChange={this.search}
+                   floatingLabelText='Search...'/>
+        {result ? result.hits.map(hit=><div className="result" onClick={((h)=>this.select(h))(hit)}
+                                            key={hit.id}>{hit.first} {hit.last}</div>) : false}
       </section>
     );
   }
