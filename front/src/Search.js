@@ -26,9 +26,16 @@ class Search extends Component {
     }
   }
 
-  select = (hit)=> {
+  select = (hit)=>
     this.setState({selected: hit});
-  }
+
+
+  deleteSelected = ()=> {
+    console.log('delete');
+  };
+
+  clearSelected = ()=>
+    this.setState({selected: false});
 
   render() {
 
@@ -41,11 +48,18 @@ class Search extends Component {
       <section>
         <h2>Search the index</h2>
         {selected ?
-          <pre style={{border:'solid 1px #eee',borderRadius:4}}>
-          <code>
-            {JSON.stringify(selected, null, 5)}
-          </code>
-        </pre> : false}
+          <div>
+            <div>
+              <span style={{cursor:'pointer'}} onClick={this.deleteSelected}>delete</span>{" "}&middot;{" "}
+              <span style={{cursor:'pointer'}} onClick={this.clearSelected}>clear</span>
+            </div>
+            <pre style={{border:'solid 1px #eee',borderRadius:4}}>
+              <code>
+                {JSON.stringify(selected, null, 5)}
+              </code>
+            </pre>
+          </div> :
+          false}
 
         <TextField onBlur={e=>window.setTimeout(()=>this.setState({result:false}),500)} onChange={this.search}
                    floatingLabelText='Search...'/>
