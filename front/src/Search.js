@@ -45,8 +45,8 @@ class Search extends Component {
       return <div>Search initializing...</div>;
 
     return (
-      <section>
-        <h2>Search the index</h2>
+      <section style={{display:'flex',alignItems:'center',flexDirection:'column'}}>
+        <h2>Search the index </h2>
         {selected ?
           <div>
             <div>
@@ -65,6 +65,8 @@ class Search extends Component {
                    floatingLabelText='Search...'/>
         {result ? result.hits.map(hit=><div className="result" onClick={(h=>()=>this.select(h))(hit)}
                                             key={hit.id}>{hit.first} {hit.last}</div>) : false}
+        <h3>Select any record to inspect it and then delete it</h3>
+
       </section>
     );
   }

@@ -16,9 +16,9 @@ class AddToIndex extends Component {
         <h2>Populate the database</h2>
 
         <RaisedButton label='Add 100 random names to index' onClick={this.populate100Names}/>
-        <div style={{marginTop:'1rem',color:'#666'}}>
+        <h3 >
           Have the node console up to see records being pushed to the index via the change feed
-        </div>
+        </h3>
       </section>
     );
   }
