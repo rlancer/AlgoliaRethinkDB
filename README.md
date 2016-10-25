@@ -6,12 +6,12 @@ Using realtime change feeds to make indexing a breeze!
 
 At [Collaborizm](https://www.collaborizm.com) we use search all over our app. 
 
-Initially we used pure ReQL to power our search features, as we grew this became problematic as RethinkDB does not support proper indexing for search. 
-After evaluating a few technologies we went with Algolia, luckily implementing Algolia with RethinkDB was a breeze. 
+Initially we used pure ReQL to power our search features, but as we grew, this became problematic as RethinkDB does not support proper indexing for search. 
+After evaluating a few technologies, we went with Algolia. Luckily, implementing Algolia with RethinkDB was a breeze. 
 
 This guide should provide the basic structure needed to hook up Algolia with RethinkDB. 
-Leveraging realtime change feeds enables you to not worry about wiring up all the places where data is changed in your app. 
-Instead you simply let the change feed tell you when data is changed and you handle sending the changed data over to Algolia.       
+Leveraging realtime change feeds enables you to forget about wiring up all the places where data is changed in your app. 
+Instead, you simply let the change feed tell you when data is changed and you send it over to Algolia.       
 
 ### Running the code
 *Requires [Node.js](https://nodejs.org) v4.x or higher*
@@ -77,8 +77,8 @@ userIndex.setSettings({attributesToIndex: ['first', 'last']}).then();
 
 # Special considerations 
 
-Since it's impossible to insure a update is properly indexed 100% of the time, it's important to provide a mechanism to take any data that might of failed to of sync via the changefeed and to resync it. 
+Since it's impossible to ensure that an update is properly indexed 100% of the time, it's important to provide a mechanism to resync any data that might have failed to sync via the changefeed.
 
-In our app we do this via a Cron which syncs recently modified data. This does lead to multi Algolia operations per an update, but it's the only reliable way to insure that data is properly synced even in edge case failure scenarios. 
+In our app we do this via a Cron, which syncs recently modified data. This does lead to multi Algolia operations per an update, but it's the only reliable way to insure that data is properly synced even in edge case failure scenarios. 
 
 Be sure to not to reindex too much data too frequently or else it could eat into your Algolia operations.
