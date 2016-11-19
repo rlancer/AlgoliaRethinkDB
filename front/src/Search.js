@@ -66,7 +66,6 @@ class Search extends Component {
         {result ? result.hits.map(hit=><div className="result" onClick={(h=>()=>this.select(h))(hit)}
                                             key={hit.id}>{hit.first} {hit.last}</div>) : false}
         <h3>Select any record to inspect it and then delete it</h3>
-
       </section>
     );
   }
